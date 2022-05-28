@@ -1,22 +1,22 @@
 ::-moz-selection {
 	color: #FFF;
-	background: #0088cc;
+	background: #850c9e;
 }
 
 ::selection {
 	color: #FFF;
-	background: #0088cc;
+	background: #850c9e;
 }
 
 :root {
-	--primary: #0088cc;
+	--primary: #850c9e;
 	--secondary: #0169fe;
 	--tertiary: #005AEF;
 	--quaternary: #383f48;
 }
 
 a {
-	color: #0088cc;
+	color: #850c9e;
 }
 
 a:hover {
@@ -33,12 +33,12 @@ a:active {
 
 html .text-color-primary,
 html .text-primary {
-	color: #0088cc !important;
+	color: #850c9e !important;
 }
 
 html .text-color-hover-primary:hover,
 html .text-hover-primary:hover {
-	color: #0088cc !important;
+	color: #850c9e !important;
 }
 
 html .text-color-secondary,
@@ -92,7 +92,7 @@ html .text-hover-light:hover {
 }
 
 html .svg-fill-color-primary {
-	fill: #0088cc !important;
+	fill: #850c9e !important;
 }
 
 html .svg-fill-color-primary svg path,
@@ -100,11 +100,11 @@ html .svg-fill-color-primary svg rect,
 html .svg-fill-color-primary svg line,
 html .svg-fill-color-primary svg polyline,
 html .svg-fill-color-primary svg polygon {
-	fill: #0088cc !important;
+	fill: #850c9e !important;
 }
 
 html .svg-fill-color-hover-primary:hover {
-	fill: #0088cc !important;
+	fill: #850c9e !important;
 }
 
 html .svg-fill-color-hover-primary svg:hover path,
@@ -112,11 +112,11 @@ html .svg-fill-color-hover-primary svg:hover rect,
 html .svg-fill-color-hover-primary svg:hover line,
 html .svg-fill-color-hover-primary svg:hover polyline,
 html .svg-fill-color-hover-primary svg:hover polygon {
-	fill: #0088cc !important;
+	fill: #850c9e !important;
 }
 
 html .svg-stroke-color-primary {
-	stroke: #0088cc !important;
+	stroke: #850c9e !important;
 }
 
 html .svg-stroke-color-primary svg path,
@@ -124,11 +124,11 @@ html .svg-stroke-color-primary svg rect,
 html .svg-stroke-color-primary svg line,
 html .svg-stroke-color-primary svg polyline,
 html .svg-stroke-color-primary svg polygon {
-	stroke: #0088cc !important;
+	stroke: #850c9e !important;
 }
 
 html .svg-stroke-color-hover-primary:hover {
-	stroke: #0088cc !important;
+	stroke: #850c9e !important;
 }
 
 html .svg-stroke-color-hover-primary svg:hover path,
@@ -136,7 +136,7 @@ html .svg-stroke-color-hover-primary svg:hover rect,
 html .svg-stroke-color-hover-primary svg:hover line,
 html .svg-stroke-color-hover-primary svg:hover polyline,
 html .svg-stroke-color-hover-primary svg:hover polygon {
-	stroke: #0088cc !important;
+	stroke: #850c9e !important;
 }
 
 html .svg-fill-color-secondary {
