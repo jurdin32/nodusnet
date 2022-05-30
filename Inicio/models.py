@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class Configuracion(models.Model):
     logo=models.ImageField(upload_to='configuracion')
+    telefono=models.CharField(max_length=12,null=True,blank=True)
 
 
 
