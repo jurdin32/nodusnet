@@ -16,6 +16,11 @@ class Configuracion(models.Model):
     def imagen(self):
         return mark_safe('<img src="/media/%s" style="width: 100px" alt="Nodusnet">'%self.logo)
 
+class EventosProximos(models.Model):
+    imagen=models.ImageField(upload_to='eventos')
+    nombre_evento=models.CharField(max_length=30,help_text="Agasajo xxx xxx xxx")
+    fecha=models.TimeField(auto_now=True)
+    descripcion=models.TextField(null=True,blank=True)
 
 
 class Slider(models.Model):
