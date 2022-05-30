@@ -4,6 +4,7 @@ from django.db import models
 class Configuracion(models.Model):
     logo=models.ImageField(upload_to='configuracion')
     telefono=models.CharField(max_length=12,null=True,blank=True)
+    email=models.EmailField(max_length=120,null=True,blank=True)
 
 
 
