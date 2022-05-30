@@ -16,6 +16,9 @@ class Configuracion(models.Model):
     def imagen(self):
         return mark_safe('<img src="/media/%s" style="width: 100px" alt="Nodusnet">'%self.logo)
 
+    class Meta:
+        verbose_name_plural="Configuraciones"
+
 class EventosProximos(models.Model):
     imagen=models.ImageField(upload_to='eventos')
     nombre_evento=models.CharField(max_length=30,help_text="Agasajo xxx xxx xxx",null=True,blank=True)
@@ -24,6 +27,9 @@ class EventosProximos(models.Model):
     descripcion=models.TextField(null=True,blank=True)
     estado=models.BooleanField(default=True)
 
+    class Meta:
+        verbose_name_plural="Eventos"
+
 
 class Slider(models.Model):
     titulo1=models.CharField(max_length=50, null=True,blank=True, help_text="Texto de maximo 50 caracteres", default="La velocidad que usted necesita")
@@ -31,3 +37,6 @@ class Slider(models.Model):
     titulo3 = models.CharField(max_length=100, null=True,blank=True, help_text="Texto de maximo 100 caracteres", default="NODUSNET")
     imagen=models.ImageField(upload_to='sliders',null=True,blank=True)
     color=models.CharField(max_length=30,null=True,blank=True, help_text="En formato hexadecimal")
+
+    class Meta:
+        verbose_name_plural="Sliders"
