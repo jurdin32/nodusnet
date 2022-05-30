@@ -124,7 +124,7 @@ STATICFILES_DIRS=[
      'static',
 ]
 
-MEDIA_URL="media"
+MEDIA_URL="/media/"
 
 MEDIA_ROOT="/mnt/7C4582971554AF5A/var/www/nodusnet/media"
 
