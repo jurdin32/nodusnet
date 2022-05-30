@@ -8,6 +8,8 @@ class Configuracion(models.Model):
     logo=models.ImageField(upload_to='configuracion')
     telefono=models.CharField(max_length=12,null=True,blank=True)
     email=models.EmailField(max_length=120,null=True,blank=True)
+    numero_clientes=models.IntegerField(default=1000)
+    numero_corporativos=models.IntegerField(default=145)
     mision=models.TextField(null=True,blank=True)
     vision=models.TextField(null=True,blank=True)
 
