@@ -10,7 +10,7 @@ class Configuracion(models.Model):
     email=models.EmailField(max_length=120,null=True,blank=True)
 
     def imagen(self):
-        return mark_safe('<img src="/media/%s" alt="Nodusnet">'%self.logo)
+        return mark_safe('<img src="/media/%s" style="width: 100px" alt="Nodusnet">'%self.logo)
 
 
 
