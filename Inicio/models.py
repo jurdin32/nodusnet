@@ -19,7 +19,7 @@ class Configuracion(models.Model):
 class EventosProximos(models.Model):
     imagen=models.ImageField(upload_to='eventos')
     nombre_evento=models.CharField(max_length=30,help_text="Agasajo xxx xxx xxx",null=True,blank=True)
-    fecha=models.TimeField(auto_now=True)
+    fecha=models.DateField(auto_now=True)
     descripcion=models.TextField(null=True,blank=True)
     estado=models.BooleanField(default=True)
 
