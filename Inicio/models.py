@@ -1,10 +1,16 @@
 from django.db import models
 
 # Create your models here.
+from django.utils.safestring import mark_safe
+
+
 class Configuracion(models.Model):
     logo=models.ImageField(upload_to='configuracion')
     telefono=models.CharField(max_length=12,null=True,blank=True)
     email=models.EmailField(max_length=120,null=True,blank=True)
+
+    def imagen(self):
+        return mark_safe('<img src="/media/%s" alt="Nodusnet">'%self.logo)
 
 
 
