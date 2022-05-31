@@ -1,31 +1,14 @@
 from django.shortcuts import render
 
 # Create your views here.
-from Inicio.models import Configuracion, EventosProximos
-
-def llenado_informacion(request):
-    configuracion = Configuracion.objects.last()
-    print(configuracion)
-    if configuracion:
-        if configuracion.logo:
-            request.session["logo"] = "/media/%s" % str(configuracion.logo)
-        if configuracion.telefono:
-            request.session["telefono"] = configuracion.telefono
-        if configuracion.facebook:
-            request.session["facebook"] = configuracion.facebook
-        if configuracion.email:
-            request.session["email"] = configuracion.email
-        if configuracion.numero_clientes:
-            request.session["numero_clientes"] = configuracion.numero_clientes
-        if configuracion.numero_corporativos:
-            request.session["numero_corporativos"] = configuracion.numero_corporativos
+from Inicio.models import Configuracion, EventosProximos, Slider
 
 
 def index(request):
     configuracion=Configuracion.objects.last()
-    llenado_informacion(request)
-
+    sliders=Slider.objects.all()
     contexto={
+        'sliders':sliders,
         'configuracion':configuracion,
         'eventos':EventosProximos.objects.all(),
     }
