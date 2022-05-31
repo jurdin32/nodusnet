@@ -47,4 +47,4 @@ def contacto(request):
     contexto={
         'configuracion':Configuracion.objects.last()
     }
-    return render(request,"index-corporate.html",contexto)
+    return render(request,"contacto.html",contexto)

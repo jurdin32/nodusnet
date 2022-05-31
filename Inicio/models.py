@@ -7,6 +7,7 @@ from django.utils.safestring import mark_safe
 class Configuracion(models.Model):
     logo=models.ImageField(upload_to='configuracion')
     telefono=models.CharField(max_length=12,null=True,blank=True)
+    direccion=models.CharField(max_length=200,null=True,blank=True)
     facebook=models.CharField(max_length=100,null=True,blank=True)
     email=models.EmailField(max_length=120,null=True,blank=True)
     numero_clientes=models.IntegerField(default=1000)
