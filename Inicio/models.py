@@ -15,6 +15,10 @@ class Configuracion(models.Model):
     mision=models.TextField(null=True,blank=True)
     vision=models.TextField(null=True,blank=True)
 
+    lunes_viernes_horario=models.CharField(max_length=50, null=True,blank=True)
+    sabado_horario = models.CharField(max_length=50, null=True, blank=True)
+    domingo_horario = models.CharField(max_length=50, null=True, blank=True)
+
     def imagen(self):
         return mark_safe('<img src="/media/%s" style="width: 100px" alt="Nodusnet">'%self.logo)
 
