@@ -120,15 +120,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS=[
-     'static',
-]
+# STATICFILES_DIRS=[
+#      'static',
+# ]
 
 MEDIA_URL="/media/"
 
 MEDIA_ROOT="/mnt/7C4582971554AF5A/var/www/nodusnet/media"
 
-#STATIC_ROOT="/mnt/7C4582971554AF5A/var/www/nodusnet/static"
+STATIC_ROOT="/mnt/7C4582971554AF5A/var/www/nodusnet/static"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
