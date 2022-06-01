@@ -45,4 +45,4 @@ def eventos(request):
 
 
 def politicas(request):
-    return HttpResponseRedirect("")
+    return render(request,'politicas.html')
