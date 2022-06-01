@@ -18,7 +18,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from Inicio.views import index, nosotros, planes, contacto
+from Inicio.views import index, nosotros, planes, contacto, eventos
 
 urlpatterns = [
     path('admin', admin.site.urls),
@@ -26,4 +26,5 @@ urlpatterns = [
     path('nosotros/',nosotros, name='nosotros'),
     path('planes/',planes, name='planes'),
     path('contacto/',contacto, name='contacto'),
+    path('works/',eventos, name='eventos'),
 ]+static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

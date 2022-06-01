@@ -31,3 +31,13 @@ def contacto(request):
         'configuracion':Configuracion.objects.last()
     }
     return render(request,"contacto.html",contexto)
+
+def eventos(request):
+    event=EventosProximos.objects.get(id=request.GET.get('event'))
+    event.visitas+=1
+    event.save()
+    contexto={
+        'configuracion':Configuracion.objects.last(),
+        'eventos':event,
+    }
+    return render(request,"blog-post.html",contexto)

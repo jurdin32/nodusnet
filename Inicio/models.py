@@ -26,12 +26,14 @@ class Configuracion(models.Model):
         verbose_name_plural="Configuraciones"
 
 class EventosProximos(models.Model):
+    tipo=models.CharField(max_length=60, default="Recomendaciones", choices=(('Recomendaciones','Recomendaciones'),('Evento','Evento')))
     imagen=models.ImageField(upload_to='eventos')
-    nombre_evento=models.CharField(max_length=30,help_text="Agasajo xxx xxx xxx",null=True,blank=True)
+    nombre_evento=models.CharField(max_length=100,help_text="Agasajo xxx xxx xxx",null=True,blank=True)
     fecha=models.TimeField(auto_now=True)
     fecha_iso = models.DateField(auto_now=True)
     descripcion=models.TextField(null=True,blank=True)
     estado=models.BooleanField(default=True)
+    visitas=models.IntegerField(default=0)
 
     class Meta:
         verbose_name_plural="Eventos"
