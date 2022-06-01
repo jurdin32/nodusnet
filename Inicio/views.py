@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
@@ -41,3 +42,7 @@ def eventos(request):
         'eventos':event,
     }
     return render(request,"blog-post.html",contexto)
+
+
+def politicas(request):
+    return HttpResponseRedirect("")
