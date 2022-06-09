@@ -46,3 +46,10 @@ def eventos(request):
 
 def politicas(request):
     return render(request,'politicas.html')
+
+def prueba_pagos(request):
+
+    return render(request,'prueba_pago.html')
+
+def pago_ok(request):
+    return render(request,'pagos_ok.html')
