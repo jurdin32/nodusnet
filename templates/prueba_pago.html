@@ -10,6 +10,27 @@
 
  <script src="https://pay.payphonetodoesposible.com/api/button/js?appId=F8BQRJffnkOm79ae8BCE5w"></script>
 <script>
+
+    var idtransaccion="";
+    function mueveReloj(){
+        momentoActual = new Date()
+        hora = momentoActual.getHours()
+        minuto = momentoActual.getMinutes()
+        segundo = momentoActual.getSeconds()
+
+        horaImprimible ="PWeb-"+Math.random() * (9999999999 - 9999 + 1)+"-"+momentoActual.getFullYear()+""+momentoActual.getMonth()+""+momentoActual.getDay()+""+ hora + minuto  + segundo
+
+        idtransaccion = horaImprimible
+
+        //La función se tendrá que llamar así misma para que sea dinámica,
+        //de esta forma:
+
+        setTimeout(mueveReloj,1000)
+        console.log(idtransaccion)
+    }
+
+    mueveReloj()
+
         window.onload = function () {
             payphone.Button({
 
@@ -23,12 +44,13 @@
                 createOrder: function (actions) {
 
 //Se ingresan los datos de la transaccion ej. monto, impuestos, etc
-                    return actions.prepare({
 
+                    console.log()
+                    return actions.prepare({
                         amount: 2000,
                         amountWithoutTax: 2000,
                         currency: "USD",
-                        clientTransactionId: "Pruebas2"
+                        clientTransactionId: idtransaccion
                     });
 
                 },
