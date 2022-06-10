@@ -25,7 +25,7 @@ def planes(request):
     contexto={
         'configuracion':Configuracion.objects.last()
     }
-    return render(request,"index-corporate.html",contexto)
+    return render(request,"planes.html",contexto)
 
 def contacto(request):
     contexto={
