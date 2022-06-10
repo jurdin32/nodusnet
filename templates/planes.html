@@ -11,34 +11,34 @@
     </section>
     <div class="container py-4">
         <div class="pricing-table pricing-table-no-gap mb-4">
-        {% for plan in planes %}
-        <div class="col-md-6 col-lg-4">
-                <div class="plan">
-                    <div class="plan-header {% if plan.destacado %}bg-primary{% endif %}">
-                        <h3>{{ plan.titulo }}</h3>
-                    </div>
-                    <div class="plan-price">
-                        <span class="price"><span class="price-unit">$</span>{{ plan.precio_con_impuesto }}</span>
-                        <label class="price-label">POR MES INCLUIDO IMPUESTOS</label>
-                    </div>
-                    <div class="plan-features">
-                        <ul>
-                            <li>Tipo $ {{ plan.tipo }}</li>
-                            <li>Precio sin Impuesto: ${{ plan.precio_sin_impuesto }}</li>
-                            <li>Tecnología: {{ plan.tecnologia }}</li>
-                            <li>Velocidad máxima: {{ plan.velocidad }}</li>
-                            <li>Compartición: {{ plan.comparticion }}</li>
-                        </ul>
-                    </div>
-                    <div class="plan-footer">
-                        <div class="call-to-action-btn">
-                            <a href="https://api.whatsapp.com/send?phone=+593993700053&text=Hola,Quiero solicitar el plan: {{ plan.titulo }}, de ${{ plan.precio_con_impuesto }} incluido impuestos. "
-                               target="_blank" class="btn btn-modern btn-primary">Solicitar!</a>
+            {% for plan in planes %}
+                <div class="col-md-6 col-lg-3">
+                    <div class="plan">
+                        <div class="plan-header {% if plan.destacado %}bg-primary{% endif %}">
+                            <h3>{{ plan.titulo }}</h3>
+                        </div>
+                        <div class="plan-price">
+                            <span class="price"><span class="price-unit">$</span>{{ plan.precio_con_impuesto }}</span>
+                            <label class="price-label">POR MES INCLUIDO IMPUESTOS</label>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li>Tipo $ {{ plan.tipo }}</li>
+                                <li>Precio sin Impuesto: ${{ plan.precio_sin_impuesto }}</li>
+                                <li>Tecnología: {{ plan.tecnologia }}</li>
+                                <li>Velocidad máxima: {{ plan.velocidad }}</li>
+                                <li>Compartición: {{ plan.comparticion }}</li>
+                            </ul>
+                        </div>
+                        <div class="plan-footer">
+                            <div class="call-to-action-btn">
+                                <a href="https://api.whatsapp.com/send?phone=+593993700053&text=Hola,Quiero solicitar el plan: {{ plan.titulo }}, de ${{ plan.precio_con_impuesto }} incluido impuestos. "
+                                   target="_blank" class="btn btn-modern btn-primary">Solicitar!</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
         </div>
     </div>
 
