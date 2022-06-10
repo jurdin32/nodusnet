@@ -59,6 +59,7 @@ class Planes(models.Model):
     comparticion=models.CharField(max_length=20)
     precio_sin_impuesto=models.DecimalField(max_digits=9, decimal_places=2)
     precio_con_impuesto=models.DecimalField(max_digits=9, decimal_places=2)
+    destacado=models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural="Planes"
