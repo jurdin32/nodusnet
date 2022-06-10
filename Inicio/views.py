@@ -45,7 +45,10 @@ def eventos(request):
 
 
 def politicas(request):
-    return render(request,'politicas.html')
+    contexto={
+        'configuracion': Configuracion.objects.last(),
+    }
+    return render(request,'politicas.html',contexto)
 
 def prueba_pagos(request):
 
