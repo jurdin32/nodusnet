@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-PAGOS OK
-</body>
-</html>
+{% extends 'index-corporate.html' %}
+{% block contenido %}
+    <div class="alert alert-primary">
+        <p>Nodusnet agradece su pago.!</p>
+        <a target="_blank" href="/cash/">Click para regresar.</a>
+    </div>
+{% endblock %}
