@@ -28,6 +28,7 @@ urlpatterns = [
     path('contacto/',contacto, name='contacto'),
     path('works/',eventos, name='eventos'),
     path('policies/',politicas, name='politicas'),
+    path('velocidad',velocidad,name='velocidad'),
     path('cash',prueba_pagos, name='cash'),
     path('ok',pago_ok, name='ok'),
 ]+static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
