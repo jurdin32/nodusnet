@@ -19,14 +19,15 @@
                     </div>
                     <div class="plan-price">
                         <span class="price"><span class="price-unit">$</span>{{ plan.precio_con_impuesto }}</span>
-                        <label class="price-label">POR MES</label>
+                        <label class="price-label">POR MES INCLUIDO IMPUESTOS</label>
                     </div>
                     <div class="plan-features">
                         <ul>
-                            <li>10GB Disk Space</li>
-                            <li>100GB Monthly Bandwith</li>
-                            <li>20 Email Accounts</li>
-                            <li>Unlimited Subdomains</li>
+                            <li>Tipo $ {{ plan.tipo }}</li>
+                            <li>Precio sin Impuesto: ${{ plan.precio_sin_impuesto }}</li>
+                            <li>Tecnología: {{ plan.tecnologia }}</li>
+                            <li>Velocidad máxima: {{ plan.velocidad }}</li>
+                            <li>Compartición: {{ plan.comparticion }}</li>
                         </ul>
                     </div>
                     <div class="plan-footer">
