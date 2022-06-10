@@ -18,7 +18,7 @@
         minuto = momentoActual.getMinutes()
         segundo = momentoActual.getSeconds()
 
-        horaImprimible ="PWeb-"+Math.random() * (9999999999 - 9999 + 1)+"-"+momentoActual.getFullYear()+""+momentoActual.getMonth()+""+momentoActual.getDay()+""+ hora + minuto  + segundo
+        horaImprimible ="NODUSNET-"+Math.random() * (9999999999 - 9999 + 1)+"-"+momentoActual.getFullYear()+""+momentoActual.getMonth()+""+momentoActual.getDay()+""+ hora + minuto  + segundo
 
         idtransaccion = horaImprimible
 
@@ -26,7 +26,6 @@
         //de esta forma:
 
         setTimeout(mueveReloj,1000)
-        console.log(idtransaccion)
     }
 
     mueveReloj()
