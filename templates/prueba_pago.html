@@ -66,6 +66,7 @@
 
                         if (value.transactionStatus == "Approved") {
                             alert("Pago " + value.transactionId + " recibido, estado " + value.transactionStatus);
+                            console.log(value.transactionId + " recibido, estado " + value.transactionStatus)
                         }
                     }).catch(function (err) {
                         console.log(err);
