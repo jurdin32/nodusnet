@@ -51,6 +51,12 @@ def politicas(request):
     }
     return render(request,'politicas.html',contexto)
 
+def velocidad(request):
+    contexto={
+        'configuracion': Configuracion.objects.last(),
+    }
+    return render(request,'velocidad.html',contexto)
+
 def prueba_pagos(request):
 
     return render(request,'prueba_pago.html')
