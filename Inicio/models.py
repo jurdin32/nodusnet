@@ -48,3 +48,17 @@ class Slider(models.Model):
 
     class Meta:
         verbose_name_plural="Sliders"
+
+
+
+class Planes(models.Model):
+    titulo=models.CharField(max_length=200)
+    tipo=models.CharField(max_length=60)
+    tecnologia=models.CharField(max_length=60)
+    comparticion=models.CharField(max_length=20)
+    precio_sin_impuesto=models.DecimalField(max_digits=9, decimal_places=2)
+    precio_con_impuesto=models.DecimalField(max_digits=9, decimal_places=2)
+
+    class Meta:
+        verbose_name_plural="Planes"
+
