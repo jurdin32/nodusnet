@@ -69,3 +69,6 @@ class Planes(models.Model):
 class Mi_empresa(models.Model):
     contenido=RichTextUploadingField()
 
+    class Meta:
+        verbose_name_plural="A cerca de Nosotros"
+

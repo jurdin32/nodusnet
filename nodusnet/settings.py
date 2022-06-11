@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import nodusnet.snniper
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -140,8 +142,9 @@ MEDIA_ROOT="/mnt/7C4582971554AF5A/var/www/nodusnet/media"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CKEDITOR_UPLOAD_PATH = '/mnt/7C4582971554AF5A/var/www/nodusnet/media/'
-CKEDITOR_FILENAME_GENERATOR = 'snniper.get_filename'
+CKEDITOR_UPLOAD_PATH = ''
+CKEDITOR_FILENAME_GENERATOR = 'nodusnet.snniper.get_filename'
+CKEDITOR_IMAGE_BACKEND = "pillow"
 
 CKEDITOR_CONFIGS = {
     'default': {

@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
-from Inicio.models import Configuracion, EventosProximos, Slider, Planes
+from Inicio.models import Configuracion, EventosProximos, Slider, Planes, Mi_empresa
 
 
 def index(request):
@@ -17,9 +17,10 @@ def index(request):
 
 def nosotros(request):
     contexto={
-        'configuracion':Configuracion.objects.last()
+        'configuracion':Configuracion.objects.last(),
+        'empresa':Mi_empresa.objects.last(),
     }
-    return render(request,"index-corporate.html",contexto)
+    return render(request,"nosotros.html",contexto)
 
 def planes(request):
     contexto={

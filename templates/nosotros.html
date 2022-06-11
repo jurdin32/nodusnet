@@ -1,0 +1,16 @@
+{% extends 'index-corporate.html' %}
+{% block contenido %}
+    <section class="page-header page-header-modern bg-color-light-scale-1 page-header-md">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 align-self-center p-static order-2 text-center">
+                    <h1 class="text-dark font-weight-bold text-8">Nuestra Empresa</h1>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <div class="container py-4">
+        {{ empresa.contenido|safe }}
+    </div>
+{% endblock %}
