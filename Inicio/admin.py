@@ -24,3 +24,8 @@ class modelo (admin.ModelAdmin):
 class modelo (admin.ModelAdmin):
     list_display = Attr(Planes)
     list_display_links = Attr(Planes)
+
+@admin.register(Mi_empresa)
+class modelo (admin.ModelAdmin):
+    list_display = Attr(Mi_empresa)
+    list_display_links = Attr(Mi_empresa)

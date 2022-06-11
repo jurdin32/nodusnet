@@ -1,3 +1,5 @@
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 
 # Create your models here.
@@ -63,4 +65,7 @@ class Planes(models.Model):
 
     class Meta:
         verbose_name_plural="Planes"
+
+class Mi_empresa(models.Model):
+    contenido=RichTextUploadingField()
 
