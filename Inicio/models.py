@@ -36,6 +36,7 @@ class EventosProximos(models.Model):
     descripcion=RichTextUploadingField()
     estado=models.BooleanField(default=True)
     visitas=models.IntegerField(default=0)
+    resumen=models.TextField(default=" ",null=True,blank=True)
 
     class Meta:
         verbose_name_plural="Eventos"
