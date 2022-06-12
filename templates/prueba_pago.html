@@ -1,71 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Prueba de pago</title>
+{% extends 'index-corporate.html' %}
+{% load static %}
+{% block contenido %}
+    <div class="py-4 table-responsive">
+    <table class="table table-bordered table-striped">
+    <thead>
+    <th>DESCRIPCION</th>
+    <th>PAGAR</th>
+    <th>ESTADO</th>
+    </thead>
+    <tbody>
+        {% for deuda in deudas %}
+        <tr>
+            <td>{{ deuda.descripcion }}</td>
+            <td><a href="#" onclick='pagar("{{ deuda.id }}")'>Pagar</a></td>
+            <td>{{ deuda.estado }}</td>
+        </tr>
+        {% endfor %}
 
-</head>
-<body>
-<div id="pp-button"></div>
+    </tbody>
 
-<script src="https://pay.payphonetodoesposible.com/api/button/js?appId={{ configuracion.appid }}"></script>
-<script>
-    var idtransaccion = "";
+    </table>
+    </div>
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="https://pay.payphonetodoesposible.com/api/button/js?appId={{ pago.appid }}"></script>
+    <script>
+        function idtransaccion() {
+            momentoActual = new Date()
+            hora = momentoActual.getHours()
+            minuto = momentoActual.getMinutes()
+            segundo = momentoActual.getSeconds()
+            horaImprimible = "NODUSNET-" + Math.random() * (9999999999 - 9999 + 1) + "-" + momentoActual.getFullYear() + "" + momentoActual.getMonth() + "" + momentoActual.getDay() + "" + hora + minuto + segundo
+            return horaImprimible.toString().replace(".", "")
+        }
 
-    function mueveReloj() {
-        momentoActual = new Date()
-        hora = momentoActual.getHours()
-        minuto = momentoActual.getMinutes()
-        segundo = momentoActual.getSeconds()
-        horaImprimible = "NODUSNET-" + Math.random() * (9999999999 - 9999 + 1) + "-" + momentoActual.getFullYear() + "" + momentoActual.getMonth() + "" + momentoActual.getDay() + "" + hora + minuto + segundo
-        idtransaccion = horaImprimible
-        setTimeout(mueveReloj, 1000)
-    }
+        var data = {
+            amount: 20.60 * 100,
+            amountWithoutTax: 20.60 * 100,
+            currency: "USD",
+            storeId: "{{ pago.storeid }}",
+            clientTransactionId: idtransaccion(),
+            responseUrl: "https://nodusnetsa.ec/ok",
+            cancellationUrl: "https://nodusnetsa.ec/cash",
+        }
 
-    mueveReloj()
-
-    data = {
-        amount: 20.60*100,
-        amountWithoutTax: 20.60*100,
-        currency: "USD",
-        storeId: "{{ configuracion.storeid }}",
-        clientTransactionId: idtransaccion.replace(".", "")
-    }
-    window.onload = function () {
-        payphone.Button({
-            //token obtenido desde la consola de developer
-            token: "{{ configuracion.token }}",
-            //PARÁMETROS DE CONFIGURACIÓN
-            btnHorizontal: true,
-            btnCard: true,
-            createOrder: function (actions) {
-                console.log()
-                return actions.prepare(data);
-
-            },
-            onComplete: function (model, actions) {
-                //Se confirma el pago realizado
-                actions.confirm({
-                    id: model.id,
-                    clientTxId: model.clientTxId
-                }).then(function (value) {
-                //EN ESTA SECCIÓN SE RECIBE LA RESPUESTA Y SE MUESTRA AL USUARIO
-                    if (value.transactionStatus == "Approved") {
-                        alert("Pago " + value.transactionId + " recibido, estado " + value.transactionStatus);
-                        console.log(value.transactionId + " recibido, estado " + value.transactionStatus)
-                    }
-                }).catch(function (err) {
-                    console.log(err);
-                });
-            }
-        }).render("#pp-button");
-    }
-</script>
-
-<script>
-
-</script>
+        function pagar(id) {
+            data.clientTransactionId="NODUSNET-"+id
+            $.ajax({
+                data: data,
+                url: 'https://pay.payphonetodoesposible.com/api/button/Prepare',
+                type: 'POST',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', "Bearer {{ pago.token }}")
+                },
+                success: function SolicitarPago(respuesta) {
+                    location.href = respuesta.payWithCard;
+                }, error: function (mensajeerror) {
+                    alert("Error en la llamada:" + mensajeerror.Message);
+                }
+            });
+        }
 
 
-</body>
-</html>
+        window.onload = function () {
+            payphone.Button({
+                //token obtenido desde la consola de developer
+                token: "{{ pago.token }}",
+                //PARÁMETROS DE CONFIGURACIÓN
+                btnHorizontal: true,
+                btnCard: true,
+                createOrder: function (actions) {
+                    console.log()
+                    return actions.prepare(data);
+
+                },
+                onComplete: function (model, actions) {
+                    //Se confirma el pago realizado
+                    actions.confirm({
+                        id: model.id,
+                        clientTxId: model.clientTxId
+                    }).then(function (value) {
+                        //EN ESTA SECCIÓN SE RECIBE LA RESPUESTA Y SE MUESTRA AL USUARIO
+                        if (value.transactionStatus == "Approved") {
+                            alert("Pago " + value.transactionId + " recibido, estado " + value.transactionStatus);
+                            console.log(value.transactionId + " recibido, estado " + value.transactionStatus)
+                        }
+                    }).catch(function (err) {
+                        console.log(err);
+                    });
+                }
+            }).render("#pp-button");
+        }
+    </script>
+{% endblock %}
+
