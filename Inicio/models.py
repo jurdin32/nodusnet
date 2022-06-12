@@ -16,6 +16,7 @@ class Configuracion(models.Model):
     numero_corporativos=models.IntegerField(default=145)
     mision=models.TextField(null=True,blank=True)
     vision=models.TextField(null=True,blank=True)
+    pago_linea=models.BooleanField(default=False)
 
     lunes_viernes_horario=models.CharField(max_length=50, null=True,blank=True)
     sabado_horario = models.CharField(max_length=50, null=True, blank=True)

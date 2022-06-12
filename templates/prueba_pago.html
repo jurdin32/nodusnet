@@ -14,22 +14,30 @@
     <div class="py-4 container table-responsive">
     <table class="table table-bordered table-striped">
     <thead>
+    <th style="text-align: center">REFERENCIA</th>
     <th>DESCRIPCION</th>
-    <th>Estado</th>
-    <th>Ver Comprobante</th>
+    <th style="text-align: center">Estado</th>
+    <th style="text-align: center">Ver Comprobante</th>
     </thead>
     <tbody>
         {% for deuda in deudas %}
         <tr>
+            <td style="text-align:  center">{% if deuda.referencia %}
+                {{ deuda.referencia }}
+                {% else %}
+                -
+                {% endif %}
+            </td>
             <td>{{ deuda.descripcion }}</td>
-            <td>
+            <td style="text-align: center">
                 {% if deuda.estado == "Pagado" %}
                     Pagado el {{ deuda.fecha_pago }}
                 {% else %}
                     <a class="btn btn-primary" href="#" onclick='pagar("{{ deuda.id }}","{{ deuda.cliente }}","{{ deuda.descripcion }}","{{ deuda.valor }}".replace(",","."))'>Por Pagar</a>
                 {% endif %}
             </td>
-            <td><a href="" class="btn btn-secondary"><i class="fa fa-print"></i> Ver Comprobante</a></td>
+            <td style="text-align: center"><a href="" class="btn btn-secondary"><i class="fa fa-print"></i> Ver Comprobante</a></td>
+
         </tr>
         {% endfor %}
 
