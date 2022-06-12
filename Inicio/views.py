@@ -61,9 +61,10 @@ def velocidad(request):
     return render(request,'velocidad.html',contexto)
 
 def prueba_pagos(request):
-    pagos=Pagos.objects.all().order_by("-fecha")
+    pagos=None
     if request.GET.get('cliente'):
-        pagos=pagos.filter(cliente__cedula=request.GET.get('cliente')).order_by("-fecha")
+        pagos=Pagos.objects.filter(cliente__cedula=request.GET.get('cliente')).order_by("-fecha")
+
     contexto={
         'configuracion':Configuracion.objects.last(),
         'pago':PagoWeb.objects.last(),

@@ -12,7 +12,7 @@
         {% for deuda in deudas %}
         <tr>
             <td>{{ deuda.descripcion }}</td>
-            <td><a href="#" onclick='pagar("{{ deuda.id }}")'>Pagar</a></td>
+            <td><a href="#" onclick='pagar("{{ deuda.id }}","{{ deuda.descripcion }}","{{ deuda.valor }}".replace(",","."))'>Pagar</a></td>
             <td>{{ deuda.estado }}</td>
         </tr>
         {% endfor %}
@@ -34,17 +34,21 @@
         }
 
         var data = {
-            amount: 20.60 * 100,
-            amountWithoutTax: 20.60 * 100,
+            amount: 0,
+            amountWithoutTax: 0,
             currency: "USD",
             storeId: "{{ pago.storeid }}",
             clientTransactionId: idtransaccion(),
+            reference:"",
             responseUrl: "https://nodusnetsa.ec/ok",
-            cancellationUrl: "https://nodusnetsa.ec/cash",
+            cancellationUrl: "https://nodusnetsa.ec/cash/",
         }
 
-        function pagar(id) {
+        function pagar(id,referencia,valor) {
             data.clientTransactionId="NODUSNET-"+id
+            data.reference=referencia
+            data.amount=parseFloat(valor)*100
+            data.amountWithoutTax=parseFloat(valor)*100
             $.ajax({
                 data: data,
                 url: 'https://pay.payphonetodoesposible.com/api/button/Prepare',
