@@ -1,7 +1,17 @@
 {% extends 'index-corporate.html' %}
 {% load static %}
 {% block contenido %}
-    <div class="py-4 table-responsive">
+    <section class="page-header page-header-modern bg-color-light-scale-1 page-header-md">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 align-self-center p-static order-2 text-center">
+								<h1 class="text-dark font-weight-bold text-8">{{ cliente }}</h1>
+								<span class="sub-title text-dark">Bienvenido a continuacion el detalle de tus transacciones</span>
+							</div>
+						</div>
+					</div>
+				</section>
+    <div class="py-4 container table-responsive">
     <table class="table table-bordered table-striped">
     <thead>
     <th>DESCRIPCION</th>
@@ -66,7 +76,7 @@
                 success: function SolicitarPago(respuesta) {
                     location.href = respuesta.payWithCard;
                 }, error: function (mensajeerror) {
-                    alert("Error en la llamada:" + mensajeerror.Message);
+                    alert("Este pago ya fue procesado..!");
                 }
             });
         }
