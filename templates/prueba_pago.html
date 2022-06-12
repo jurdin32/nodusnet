@@ -12,7 +12,14 @@
         {% for deuda in deudas %}
         <tr>
             <td>{{ deuda.descripcion }}</td>
-            <td><a href="#" onclick='pagar("{{ deuda.id }}","{{ deuda.descripcion }}","{{ deuda.valor }}".replace(",","."))'>Pagar</a></td>
+            <td>
+                {% if deuda.estado == "Pagado" %}
+                    {{ deuda.fecha }}
+                {% else %}
+                    <a class="btn btn-primary" href="#" onclick='pagar("{{ deuda.id }}","{{ deuda.descripcion }}","{{ deuda.valor }}".replace(",","."))'>Pagar</a>
+                {% endif %}
+
+            </td>
             <td>{{ deuda.estado }}</td>
         </tr>
         {% endfor %}

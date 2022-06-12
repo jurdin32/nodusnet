@@ -21,5 +21,5 @@ class Pagos(models.Model):
     descripcion=models.TextField()
     valor=models.DecimalField(default=0,decimal_places=2, max_digits=9)
     fecha=models.DateTimeField(auto_created=True,null=True,blank=True)
-    fecha_pago=models.DateTimeField(auto_now_add=True,blank=True,null=True)
+    fecha_pago=models.DateTimeField(auto_now=True,blank=True,null=True)
     estado=models.CharField(max_length=30)

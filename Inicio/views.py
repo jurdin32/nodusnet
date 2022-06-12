@@ -73,7 +73,9 @@ def prueba_pagos(request):
     return render(request,'prueba_pago.html',contexto)
 
 def pago_ok(request):
-    contexto = {
-        'configuracion': Configuracion.objects.last(),
-    }
-    return render(request,'pagos_ok.html',contexto)
+    id=request.GET.get('clientTransactionId').replace("NODUSNET-","")
+    pago=Pagos.objects.get(id=id)
+    cliente=pago.cliente.cedula
+    pago.estado="Pagado"
+    pago.save()
+    return HttpResponseRedirect("/cash/?cliente=%s"%cliente)
