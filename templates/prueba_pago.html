@@ -15,8 +15,8 @@
     <table class="table table-bordered table-striped">
     <thead>
     <th>DESCRIPCION</th>
-    <th>PAGAR</th>
-    <th>ESTADO</th>
+    <th>Estado</th>
+    <th>Ver Comprobante</th>
     </thead>
     <tbody>
         {% for deuda in deudas %}
@@ -24,13 +24,12 @@
             <td>{{ deuda.descripcion }}</td>
             <td>
                 {% if deuda.estado == "Pagado" %}
-                    {{ deuda.fecha }}
+                    Pagado el {{ deuda.fecha_pago }}
                 {% else %}
-                    <a class="btn btn-primary" href="#" onclick='pagar("{{ deuda.id }}","{{ deuda.descripcion }}","{{ deuda.valor }}".replace(",","."))'>Pagar</a>
+                    <a class="btn btn-primary" href="#" onclick='pagar("{{ deuda.id }}","{{ deuda.cliente }}","{{ deuda.descripcion }}","{{ deuda.valor }}".replace(",","."))'>Por Pagar</a>
                 {% endif %}
-
             </td>
-            <td>{{ deuda.estado }}</td>
+            <td><a href="" class="btn btn-secondary"><i class="fa fa-print"></i> Ver Comprobante</a></td>
         </tr>
         {% endfor %}
 
@@ -61,9 +60,9 @@
             cancellationUrl: "https://nodusnetsa.ec/cash/",
         }
 
-        function pagar(id,referencia,valor) {
+        function pagar(id,cliente,referencia,valor) {
             data.clientTransactionId="NODUSNET-"+id
-            data.reference=referencia
+            data.reference=referencia+" Cliente: "+cliente
             data.amount=parseFloat(valor)*100
             data.amountWithoutTax=parseFloat(valor)*100
             $.ajax({

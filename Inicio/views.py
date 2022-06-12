@@ -83,4 +83,5 @@ def pago_ok(request):
     cliente=pago.cliente.cedula
     pago.estado="Pagado"
     pago.save()
+    print(request.GET)
     return HttpResponseRedirect("/cash/?cliente=%s"%cliente)
