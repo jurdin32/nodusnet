@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
+from BotonPagos.models import PagoWeb
 from Inicio.models import Configuracion, EventosProximos, Slider, Planes, Mi_empresa
 
 
@@ -59,8 +60,10 @@ def velocidad(request):
     return render(request,'velocidad.html',contexto)
 
 def prueba_pagos(request):
-
-    return render(request,'prueba_pago.html')
+    contexto={
+        'configuracion':PagoWeb.objects.last(),
+    }
+    return render(request,'prueba_pago.html',contexto)
 
 def pago_ok(request):
     return render(request,'pagos_ok.html')
