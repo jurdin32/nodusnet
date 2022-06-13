@@ -6,7 +6,7 @@ class Clientes(models.Model):
     nombres=models.CharField(max_length=60, null=True,blank=True)
     apellidos=models.CharField(max_length=60, null=True,blank=True)
     razon_social=models.CharField(max_length=300, null=True,blank=True)
-
+    email = models.EmailField(max_length=200, null=True, blank=True)
     class Meta:
         verbose_name_plural="Clientes"
 
@@ -24,3 +24,4 @@ class Pagos(models.Model):
     fecha_pago=models.DateTimeField(auto_now=True,blank=True,null=True)
     referencia=models.CharField(max_length=120,null=True,blank=True)
     estado=models.CharField(max_length=30)
+

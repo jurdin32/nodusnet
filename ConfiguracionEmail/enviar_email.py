@@ -7,12 +7,13 @@ from email.mime.text import MIMEText
 from email.utils import formatdate
 import smtplib
 
-from ecosalud.configuracion import datos_email
+from ConfiguracionEmail.models import EnvioEmail
 
+datos_email=EnvioEmail.objects.last()
 
 def enviarEmail(destinatarios=[], asunto="", mensaje="", archivos=[], is_html=False):
     msg = MIMEMultipart()
-    msg['From'] = datos_email['usuario']
+    msg['From'] ="Nodusnet <"+datos_email.usuario+">"
     msg['To'] = ", ".join(destinatarios)
     msg['Date'] = formatdate(localtime=True)
     msg['Subject'] = asunto
@@ -30,10 +31,10 @@ def enviarEmail(destinatarios=[], asunto="", mensaje="", archivos=[], is_html=Fa
                 part.add_header('Content-Disposition', 'attachment; filename="{}"'.format(Path(path).name))
                 msg.attach(part)
 
-    smtp = smtplib.SMTP(datos_email['servidor_smtp'], datos_email['puerto'])
-    if datos_email['use_tls']:
+    smtp = smtplib.SMTP(datos_email.servidor_smtp, datos_email.puerto)
+    if datos_email.use_tls:
         smtp.starttls()
-    smtp.login(datos_email['usuario'], datos_email['password'])
-    smtp.sendmail(datos_email['usuario'],destinatarios, msg.as_string().encode('utf-8'))
+    smtp.login(datos_email.usuario, datos_email.password)
+    smtp.sendmail(datos_email.usuario,destinatarios, msg.as_string().encode('utf-8'))
     smtp.quit()
     print("Se envio el email")
