@@ -34,6 +34,7 @@ class EventosProximos(models.Model):
     nombre_evento=models.CharField(max_length=100,help_text="Agasajo xxx xxx xxx",null=True,blank=True)
     fecha=models.TimeField(auto_now=True)
     fecha_iso = models.DateField(auto_now=True)
+    fecha_modificacion=models.DateTimeField(auto_now_add=True)
     descripcion=RichTextUploadingField()
     estado=models.BooleanField(default=True)
     visitas=models.IntegerField(default=0)
