@@ -14,7 +14,7 @@ def index(request):
     contexto={
         'sliders':sliders,
         'configuracion':configuracion,
-        'eventos':EventosProximos.objects.all().order_by('-id'),
+        'eventos':EventosProximos.objects.filter(estado=True).order_by('-id'),
     }
     return render(request,"index-corporate.html",contexto)
 
