@@ -34,9 +34,7 @@ def planes(request):
 
 def contacto(request):
     configuracion=Configuracion.objects.last()
-    contexto={
-        'configuracion':configuracion
-    }
+    mensaje=""
     print(request.POST)
     if request.POST:
         enviarEmail(destinatarios=[request.POST.get('email')], asunto="Nodusnetsa.ec",
@@ -44,6 +42,11 @@ def contacto(request):
         enviarEmail(destinatarios=[configuracion.email], asunto="Un Usuario trata de ponerse en contacto desde Nodusnetsa.ec",
                     mensaje=request.POST.get('subject')+"\n"+request.POST.get('message'),
                     is_html=False)
+        mensaje="Tu mensaje se entrego de manera exitosa..!"
+    contexto = {
+        'configuracion': configuracion,
+        'mensaje':mensaje,
+    }
     return render(request,"contacto.html",contexto)
 
 def eventos(request):

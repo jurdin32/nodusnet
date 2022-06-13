@@ -90,3 +90,11 @@
 
     </div>
 {% endblock %}
+{% block script %}
+    {% if mensaje %}
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+            swal("En buena hora!", "Su mensaje se ha entregado con exito!, en breve nos pondremos en contacto con usted.", "success");
+        </script>
+    {% endif %}
+{% endblock %}
