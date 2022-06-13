@@ -33,14 +33,15 @@ def planes(request):
     return render(request,"planes.html",contexto)
 
 def contacto(request):
+    configuracion=Configuracion.objects.last()
     contexto={
-        'configuracion':Configuracion.objects.last()
+        'configuracion':configuracion
     }
     print(request.POST)
     if request.POST:
         enviarEmail(destinatarios=[request.POST.get('email')], asunto="Nodusnetsa.ec",
                     mensaje="Gracias por ponerte en contacto con nosotros en breve atenderemos tu requerimiento", is_html=False)
-        enviarEmail(destinatarios=['direcc1987@gmail.com'], asunto="Un Usuario trata de ponerse en contacto desde Nodusnetsa.ec",
+        enviarEmail(destinatarios=[configuracion.email], asunto="Un Usuario trata de ponerse en contacto desde Nodusnetsa.ec",
                     mensaje=request.POST.get('subject')+"\n"+request.POST.get('message'),
                     is_html=False)
     return render(request,"contacto.html",contexto)
