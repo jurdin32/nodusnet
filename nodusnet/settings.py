@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'Inicio',
     'BotonPagos',
     'Abonados',
+    'ConfiguracionEmail',
 ]
 
 MIDDLEWARE = [
