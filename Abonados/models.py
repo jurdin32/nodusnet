@@ -25,3 +25,5 @@ class Pagos(models.Model):
     referencia=models.CharField(max_length=120,null=True,blank=True)
     estado=models.CharField(max_length=30)
 
+
+

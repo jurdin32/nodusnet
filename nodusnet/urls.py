@@ -33,5 +33,5 @@ urlpatterns = [
     path('cash/',prueba_pagos, name='cash'),
     path('ok',pago_ok, name='ok'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('report',reporte_venta,name='reporte')
+    path('report/',reporte_venta,name='reporte')
 ]+static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
