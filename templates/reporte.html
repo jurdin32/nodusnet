@@ -17,7 +17,7 @@
             <td>Cédula o RUC</td><td>{{ pago.cliente.cedula }}</td>
         </tr>
         <tr>
-            <td>Razon Social</td><td>{{ pago.cliente.nombres }} {{  pago.cliente.apellidos }}</td>
+            <td>Razon Social</td><td>{% if pago.cliente.razon_social %}{{ pago.cliente.razon_social }}{% else %}{{ pago.cliente.nombres }} {{  pago.cliente.apellidos }}{% endif %}</td>
         </tr>
         <tr>
             <td>Estado</td><td>{{ pago.estado }}</td>
