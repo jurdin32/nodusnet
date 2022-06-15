@@ -11,7 +11,7 @@
   <img src='/static/nodusnet/NODUSNET-02.png' class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title" style="text-align: center">$ {{ pago.valor }}</h5>
-    <p class="card-text">{{ pago.descripcion }}</p>
+    <p class="card-text text-center">{{ pago.descripcion|upper }}</p>
     <table class="table table-striped">
         <tr>
             <td>Cédula o RUC</td><td>{{ pago.cliente.cedula }}</td>
