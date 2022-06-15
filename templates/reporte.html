@@ -9,46 +9,47 @@
             </div>
         </div>
     </section>
-    <div class="container py-4">
-<div class="row">
-    <div style="padding: 0px; margin: 0 auto">
-        <div class="card-body">
-            <h5 class="card-title" style="text-align: center">$ {{ pago.valor }}</h5>
-            <p class="card-text text-center">{{ pago.descripcion|upper }}</p>
-            <table class="table table-striped">
-                <tr>
-                    <td style="font-weight: bold">Cédula o RUC</td>
-                    <td>{{ pago.cliente.cedula }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: bold">Razon Social</td>
-                    <td>{% if pago.cliente.razon_social %}{{ pago.cliente.razon_social }}{% else %}
-                        {{ pago.cliente.nombres }} {{ pago.cliente.apellidos }}{% endif %}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: bold">Estado</td>
-                    <td>{{ pago.estado }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: bold">Fecha de creación</td>
-                    <td>{% if pago.estado == "Pagado" %}{{ pago.fecha }}{% endif %}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: bold">Fecha de pago</td>
-                    <td>{% if pago.estado == "Pagado" %}{{ pago.fecha_pago }}{% endif %}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: bold">Referencia</td>
-                    <td>{% if pago.estado == "Pagado" %}{{ pago.referencia }}{% endif %}</td>
-                </tr>
-            </table>
-        <div style="text-align: center">
-            <a href="/cash/?cliente={{ pago.cliente.cedula }}" class="btn btn-primary "><i class="fa fa-chevron-circle-left"></i> Volver</a>
-        </div>
+    <div class="container">
+        <div class="row">
+            <div style="padding: 0px; margin: 0 auto">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align: center">$ {{ pago.valor }}</h5>
+                    <p class="card-text text-center">{{ pago.descripcion|upper }}</p>
+                    <table class="table table-striped">
+                        <tr>
+                            <td style="font-weight: bold">Cédula o RUC</td>
+                            <td>{{ pago.cliente.cedula }}</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold">Razon Social</td>
+                            <td>{% if pago.cliente.razon_social %}{{ pago.cliente.razon_social }}{% else %}
+                                {{ pago.cliente.nombres }} {{ pago.cliente.apellidos }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold">Estado</td>
+                            <td>{{ pago.estado }}</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold">Fecha de creación</td>
+                            <td>{% if pago.estado == "Pagado" %}{{ pago.fecha }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold">Fecha de pago</td>
+                            <td>{% if pago.estado == "Pagado" %}{{ pago.fecha_pago }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold">Referencia</td>
+                            <td>{% if pago.estado == "Pagado" %}{{ pago.referencia }}{% endif %}</td>
+                        </tr>
+                    </table>
+                    <div style="text-align: center">
+                        <a href="/cash/?cliente={{ pago.cliente.cedula }}" class="btn btn-primary "><i
+                                class="fa fa-chevron-circle-left"></i> Volver</a>
+                    </div>
 
+                </div>
+            </div>
         </div>
-    </div>
-</div>
     </div>
 {% endblock %}
 
