@@ -127,9 +127,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# STATICFILES_DIRS=[
-#       'static',
-# ]
+STATICFILES_DIRS=[
+       'static',
+]
 
 STATIC_ROOT="/mnt/7C4582971554AF5A/var/www/nodusnet/static"
 
