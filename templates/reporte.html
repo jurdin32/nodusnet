@@ -29,8 +29,16 @@
                     <td>{{ pago.estado }}</td>
                 </tr>
                 <tr>
+                    <td>Fecha de creación</td>
+                    <td>{% if pago.estado == "Pagado" %}{{ pago.fecha }}{% endif %}</td>
+                </tr>
+                <tr>
                     <td>Fecha de pago</td>
                     <td>{% if pago.estado == "Pagado" %}{{ pago.fecha_pago }}{% endif %}</td>
+                </tr>
+                <tr>
+                    <td>Referencia</td>
+                    <td>{% if pago.estado == "Pagado" %}{{ pago.referencia }}{% endif %}</td>
                 </tr>
             </table>
         <div style="text-align: center">
