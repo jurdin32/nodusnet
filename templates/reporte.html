@@ -4,27 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Reporte de las transacciones</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body class="container">
-<div class="card" style="width: 18rem;">
-  <img src='/static/nodusnet/NODUSNET-02.png' class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title" style="text-align: center">$ {{ pago.valor }}</h5>
-    <p class="card-text text-center">{{ pago.descripcion|upper }}</p>
-    <table class="table table-striped">
-        <tr>
-            <td>Cédula o RUC</td><td>{{ pago.cliente.cedula }}</td>
-        </tr>
-        <tr>
-            <td>Razon Social</td><td>{% if pago.cliente.razon_social %}{{ pago.cliente.razon_social }}{% else %}{{ pago.cliente.nombres }} {{  pago.cliente.apellidos }}{% endif %}</td>
-        </tr>
-        <tr>
-            <td>Estado</td><td>{{ pago.estado }}</td>
-        </tr>
-    </table>
-    <a href="/cash/?cliente=0703886697001" class="btn btn-primary">Volver</a>
-  </div>
+<div class="row py-4">
+    <div class="card col-lg-6 col-md-6">
+        <img src='/static/nodusnet/NODUSNET-02.png' class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title" style="text-align: center">$ {{ pago.valor }}</h5>
+            <p class="card-text text-center">{{ pago.descripcion|upper }}</p>
+            <table class="table table-striped">
+                <tr>
+                    <td>Cédula o RUC</td>
+                    <td>{{ pago.cliente.cedula }}</td>
+                </tr>
+                <tr>
+                    <td>Razon Social</td>
+                    <td>{% if pago.cliente.razon_social %}{{ pago.cliente.razon_social }}{% else %}
+                        {{ pago.cliente.nombres }} {{ pago.cliente.apellidos }}{% endif %}</td>
+                </tr>
+                <tr>
+                    <td>Estado</td>
+                    <td>{{ pago.estado }}</td>
+                </tr>
+            </table>
+        <div style="text-align: center">
+            <a href="/cash/?cliente={{ pago.cliente.cedula }}" class="btn btn-primary ">Volver</a>
+        </div>
+
+        </div>
+    </div>
 </div>
 </body>
 </html>
