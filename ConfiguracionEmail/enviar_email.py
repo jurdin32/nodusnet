@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from email import encoders
 from email.mime.base import MIMEBase
 from pathlib import Path
