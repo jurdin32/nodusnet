@@ -28,6 +28,10 @@
                     <td>Estado</td>
                     <td>{{ pago.estado }}</td>
                 </tr>
+                <tr>
+                    <td>Fecha de pago</td>
+                    <td>{% if pago.estado == "Pagado" %}{{ pago.fecha_pago }}{% endif %}</td>
+                </tr>
             </table>
         <div style="text-align: center">
             <a href="/cash/?cliente={{ pago.cliente.cedula }}" class="btn btn-primary ">Volver</a>
