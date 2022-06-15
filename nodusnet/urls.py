@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from Abonados.views import reporte_venta
 from Inicio.views import *
 
 urlpatterns = [
@@ -32,4 +33,5 @@ urlpatterns = [
     path('cash/',prueba_pagos, name='cash'),
     path('ok',pago_ok, name='ok'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('report',reporte_venta,name='reporte')
 ]+static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
