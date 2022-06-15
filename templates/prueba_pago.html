@@ -69,7 +69,7 @@
             clientTransactionId: idtransaccion(),
             reference:"",
             responseUrl: "https://nodusnetsa.ec/ok",
-            cancellationUrl: "https://nodusnetsa.ec/cash/",
+            cancellationUrl: "https://nodusnetsa.ec/cash/?cliente={{ cliente.cedula }}",
         }
 
         function pagar(id,cliente,referencia,valor) {
