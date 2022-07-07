@@ -75,3 +75,9 @@ class Mi_empresa(models.Model):
     class Meta:
         verbose_name_plural="A cerca de Nosotros"
 
+class CredencialesFacebook(models.Model):
+    identificador=models.TextField(max_length=30,null=True,blank=True)
+
+    class Meta:
+        verbose_name_plural="Credenciales de Facebook"
+
