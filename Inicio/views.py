@@ -5,7 +5,7 @@ from django.shortcuts import render
 from Abonados.models import Pagos, Clientes
 from BotonPagos.models import PagoWeb
 from ConfiguracionEmail.enviar_email import enviarEmail
-from Inicio.models import Configuracion, EventosProximos, Slider, Planes, Mi_empresa
+from Inicio.models import Configuracion, EventosProximos, Slider, Planes, Mi_empresa, CredencialesFacebook
 
 
 def index(request):
@@ -52,6 +52,7 @@ def eventos(request):
     event.save()
     contexto={
         'configuracion':Configuracion.objects.last(),
+        'facebook':CredencialesFacebook.objects.last(),
         'eventos':event,
     }
     return render(request,"blog-post.html",contexto)
