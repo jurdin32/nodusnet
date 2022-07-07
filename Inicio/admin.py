@@ -29,3 +29,8 @@ class modelo (admin.ModelAdmin):
 class modelo (admin.ModelAdmin):
     list_display = Attr(Mi_empresa)
     list_display_links = Attr(Mi_empresa)
+
+@admin.register(CredencialesFacebook)
+class modelo (admin.ModelAdmin):
+    list_display = Attr(CredencialesFacebook)
+    list_display_links = Attr(CredencialesFacebook)

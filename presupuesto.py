@@ -11,7 +11,7 @@ paths=[
 total= 0
 def numLineasFichero(data):
     archivo=str(data)
-    fichero = open(archivo, 'r')
+    fichero = open(archivo, 'r',encoding="utf8")
     fichero.readline()
     fichero.seek(0)
     c=len(fichero.readlines())
